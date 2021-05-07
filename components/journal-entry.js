@@ -69,27 +69,38 @@ class JournalEntry extends HTMLElement {
    */
   set entry(entry) {
     /* 
-     * TODO: set the entry title, date, and content fields in this component
+     * set the entry title, date, and content fields in this component
      */
     
-    // CODE GOES HERE
+    let title = this.shadowRoot.querySelector('.entry-title');
+    title.innerHTML = entry.title;
+
+    let date = this.shadowRoot.querySelector('.entry-date');
+    date.innerHTML = entry.date;
+
+    let content = this.shadowRoot.querySelector('.entry-content');
+    content.innerHTML = entry.content;
 
     if (entry.image) {
       let entryImage;
       /*
-       * TODO: if the entry contains an image resource,
+       * if the entry contains an image resource,
        * 1. create an image element with the correct class
        * 2. set the image src and alt attributes
        * 3. append the image element to the appropriate location in this component
        */
+      // create element
+      entryImage = document.createElement('img');
 
-      // CODE GOES HERE vvv
+      // set attributes
+      entryImage.src = entry.image.src;
+      entryImage.alt = entry.image.alt;
+
+      // append to entry
+      this.shadowRoot.querySelector('.entry').appendChild(entryImage);
 
 
 
-
-
-      // CODE GOES HERE ^^^
 
       /* ------------- do not edit this code, it is for your debugging purposes ------------- */
       try {
@@ -109,14 +120,20 @@ class JournalEntry extends HTMLElement {
        * 3. append the audio element to the appropriate location in this component
        */
 
-      // CODE GOES HERE vvv
+      // create element
+      entryAudio = document.createElement('audio');
+
+      // set attributes
+      entryAudio.src = entry.audio;
+      entryAudio.controls = "";
+
+      // append to entry
+      this.shadowRoot.querySelector('.entry').appendChild(entryAudio);
 
 
 
 
 
-
-      // CODE GOES HERE ^^^
       
 
       
