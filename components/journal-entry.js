@@ -93,6 +93,7 @@ class JournalEntry extends HTMLElement {
       entryImage = document.createElement('img');
 
       // set attributes
+      entryImage.setAttribute('class', 'entry-image');
       entryImage.src = entry.image.src;
       entryImage.alt = entry.image.alt;
 
@@ -124,8 +125,9 @@ class JournalEntry extends HTMLElement {
       entryAudio = document.createElement('audio');
 
       // set attributes
+      entryAudio.setAttribute('class', 'entry-audio');
       entryAudio.src = entry.audio;
-      entryAudio.controls = "";
+      entryAudio.controls = true;
 
       // append to entry
       this.shadowRoot.querySelector('.entry').appendChild(entryAudio);
